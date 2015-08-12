@@ -5,6 +5,7 @@
   "scripts":{
     "test":"mocha"
   },
+  "main":"./lib/index.js",
   "devDependencies":{
     "x11":"*",
     "mocha":"*",
