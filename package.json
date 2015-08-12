@@ -1,14 +1,20 @@
-{"name":"xpixmap",
-  "version":"0.0.1",
-  "repository":"http://github.com/klepthys/node-xpm.git",
-  "keywords":["x11","xlib","xpixmaps","xpm"],
-  "scripts":{
-    "test":"mocha"
+{
+  "name": "xpixmap",
+  "version": "0.0.2",
+  "repository": "http://github.com/klepthys/node-xpm.git",
+  "keywords": [
+    "x11",
+    "xlib",
+    "xpixmaps",
+    "xpm"
+  ],
+  "scripts": {
+    "test": "mocha"
   },
-  "main":"./lib/index.js",
-  "devDependencies":{
-    "x11":"*",
-    "mocha":"*",
-    "chai":"*"
+  "main": "./lib/index.js",
+  "devDependencies": {
+    "x11": "*",
+    "mocha": "*",
+    "chai": "*"
   }
 }
