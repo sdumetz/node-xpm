@@ -1,6 +1,6 @@
 {
   "name": "xpixmap",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "http://github.com/klepthys/node-xpm.git",
   "keywords": [
     "x11",
