@@ -18,6 +18,6 @@ describe("mapColors",function(){
   });
   it("create object from array (2)",function(){
     var colors = pixmap.mapColors(fixtures[1],sizes[1]);
-    expect(colors).to.have.property("#.","40C3ECFF");
+    expect(colors).to.have.property("#.","56C2EAFF");
   });
 });

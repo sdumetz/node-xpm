@@ -1,7 +1,14 @@
 
 
 describe("toBuffer",function(){
-  var pixmap, color, sizes,content;
+  var pixmap;
+  var sizes,colors,content;
+  var tests = [ 
+    {index:0,format:"RGBA",expected:"3A32E4FF"},
+    {index:1,format:"RGBA",expected:"4DBFE9FF"},
+    {index:0,format:"BGRA",expected:"E4323AFF"},
+    {index:1,format:"BGRA",expected:"E9BF4DFF"}
+  ]
   before(function(){
     pixmap = new PixmapFromFile();
     sizes = [
@@ -18,10 +25,19 @@ describe("toBuffer",function(){
       pixmap.getArray(fixtures[1],sizes[1])
     ]
   });
+  tests.forEach(function(test) {
+    it("create buffer from arrays ("+(test.index+1).toString()+") format : "+test.format,function(){
+      var index= test.index
+      pixmap.options.format = test.format
+      var buf = pixmap.toBuffer(colors[index],content[index],sizes[index]);
+      expect(buf.length).to.equal(sizes[index].width*sizes[index].height*4);
+      var count = 0;
+      while (buf[count]==0){
+        count++;
+      }//Get first non null pixel.
+      expect(buf.readUInt32BE(count).toString(16).toUpperCase()).to.equal(test.expected);
 
-  it("create buffer from arrays (1)",function(){
-    var buf = pixmap.toBuffer(colors[0],content[0],sizes[0]);
-    expect(buf.length).to.equal(sizes[0].width*sizes[0].height*4);
-    expect(buf[0]).to.equal(0);
+
+    });
   });
 });
